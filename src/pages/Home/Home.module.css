@@ -1,0 +1,65 @@
+.main {
+  flex-grow: 1;
+  padding-top: 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    url('/images/main_background.jpg');
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .main {
+    background-image: url('/images/main_background@2x.jpg');
+  }
+}
+
+.heading {
+  color: #f7f7f7;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.66;
+  @media screen and (max-width: 374px) {
+    font-size: 36px;
+    line-height: 1.1;
+  }
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+}
+
+.description {
+  color: #f7f7f7;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  @media screen and (max-width: 374px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    font-size: 22px;
+  }
+}
+
+.ctaLink {
+  display: inline-block;
+  color: var(--White, #fff);
+  margin-top: 40px;
+  border-radius: 200px;
+  letter-spacing: -0.005em;
+  background: var(--Link-background);
+  padding: 16px 49px;
+  transition: all 0.2s ease;
+  &:hover,
+  &:focus {
+    background: var(--Link-hover-background);
+    color: currentColor;
+  }
+}

@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  color: var(--Main, #101828);
+  border-bottom: 1px solid var(--Badges, #f2f4f7);
+  background: var(--Inputs, #f7f7f7);
+}
+.headerLogoImage {
+  @media screen and (max-width: 768px) {
+    max-width: none;
+  }
+}
+
+.headerNav {
+  margin-left: 12px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.active {
+  color: var(--Url-active-hover);
+}
