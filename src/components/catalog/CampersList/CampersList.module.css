@@ -1,0 +1,6 @@
+.campersList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  outline: 1px solid goldenrod;
+}

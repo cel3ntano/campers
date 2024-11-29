@@ -34,11 +34,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -77,16 +72,17 @@ a {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: #ffffff;
     background-color: #213547;
   }
-}
+} */
 
 .container {
   /* margin: 0 auto; */
   /* max-width: 1440px; */
+  /* container-type: inline-size; */
   padding: 0 64px;
 
   @media screen and (max-width: 374px) {
