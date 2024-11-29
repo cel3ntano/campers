@@ -33,7 +33,7 @@ export default function CamperItem({
         <div className={css.camperEquipment}>
           <CamperEquipment camperDeatils={camperDeatils} />
         </div>
-        <Link className={css.camperDetailsLink}>Show More</Link>
+        <Link className={`link ${css.camperItemLink}`}>Show More</Link>
       </div>
     </li>
   );

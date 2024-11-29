@@ -8,7 +8,7 @@ export default function Home() {
       <p className={css.description}>
         You can find everything you want in our catalog
       </p>
-      <Link to="/catalog" className={css.ctaLink}>
+      <Link to="/catalog" className="link">
         View Now
       </Link>
     </main>

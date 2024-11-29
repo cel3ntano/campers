@@ -2,5 +2,5 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  outline: 1px solid goldenrod;
+  outline: 2px dashed gold;
 }

@@ -65,6 +65,23 @@ a {
   }
 }
 
+.link {
+  display: inline-block;
+  width: fit-content;
+  color: var(--White, #fff);
+  margin-top: 40px;
+  border-radius: 200px;
+  letter-spacing: -0.005em;
+  background: var(--Link-background);
+  padding: 16px 49px;
+  transition: all 0.2s ease;
+  &:hover,
+  &:focus {
+    background: var(--Link-hover-background);
+    color: var(--White, #fff);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

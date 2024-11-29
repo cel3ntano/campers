@@ -1,0 +1,54 @@
+.camperGeneralInfo {
+  outline: 2px dashed aquamarine;
+}
+
+.camperHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.camperName {
+  margin-right: auto;
+  color: var(--Main, #101828);
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.camperPrice {
+  color: var(--Main, #101828);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+.favouriteButton {
+  background: transparent;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.camperMetaData {
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+}
+
+.camperMetaData p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.reviews {
+  text-decoration-line: underline;
+  text-underline-position: from-font;
+}
+
+.starIcon {
+  fill: #ffc531;
+}
+
+.locationIcon {
+  fill: #101828;
+}

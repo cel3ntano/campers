@@ -1,6 +1,9 @@
 .main {
   flex-grow: 1;
-  padding-top: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -45,21 +48,5 @@
   }
   @media screen and (min-width: 375px) and (max-width: 767px) {
     font-size: 22px;
-  }
-}
-
-.ctaLink {
-  display: inline-block;
-  color: var(--White, #fff);
-  margin-top: 40px;
-  border-radius: 200px;
-  letter-spacing: -0.005em;
-  background: var(--Link-background);
-  padding: 16px 49px;
-  transition: all 0.2s ease;
-  &:hover,
-  &:focus {
-    background: var(--Link-hover-background);
-    color: currentColor;
   }
 }

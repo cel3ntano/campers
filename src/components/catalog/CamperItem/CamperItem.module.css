@@ -7,18 +7,15 @@
   background: var(--White, #fff);
 }
 
-.camperDetailsLink {
-  display: inline-block;
-  color: var(--White, #fff);
+.camperItemInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+  outline: 2px dashed olivedrab;
+}
+
+.camperItemLink {
   margin-top: 24px;
-  border-radius: 200px;
-  letter-spacing: -0.005em;
-  background: var(--Link-background);
   padding: 16px 40px;
-  transition: all 0.2s ease;
-  &:hover,
-  &:focus {
-    background: var(--Link-hover-background);
-    color: currentColor;
-  }
 }
