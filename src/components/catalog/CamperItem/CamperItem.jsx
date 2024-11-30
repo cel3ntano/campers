@@ -14,7 +14,7 @@ export default function CamperItem({
   gallery = [],
   location,
   description,
-  ...camperDeatils
+  ...camperDetails
 }) {
   const thumbnailImage = gallery[0]?.thumb || null;
 
@@ -28,10 +28,10 @@ export default function CamperItem({
           />
         </div>
         <div className={css.camperDescription}>
-          <CamperDescription />
+          <CamperDescription description={description} />
         </div>
         <div className={css.camperEquipment}>
-          <CamperEquipment camperDeatils={camperDeatils} />
+          <CamperEquipment camperDetails={camperDetails} />
         </div>
         <Link className={`link ${css.camperItemLink}`}>Show More</Link>
       </div>

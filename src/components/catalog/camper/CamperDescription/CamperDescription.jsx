@@ -1,9 +1,9 @@
 import css from './CamperDescription.module.css';
 
-export default function CamperDescription() {
+export default function CamperDescription({ description }) {
   return (
     <div className={css.camperDescription}>
-      <p>Description</p>
+      <p>{description}</p>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.equipmentLabelsList {
+  outline: 2px dashed royalblue;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.labelItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background: var(--Badges, #f2f4f7);
+}
+
+.equipmentIcon {
+  fill: #101828;
+}
