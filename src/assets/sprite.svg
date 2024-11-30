@@ -28,13 +28,13 @@
 			<path d="M12 2h-10v28h10v-28zM30 2h-10v10h10v-10zM30 20v10h-10v-10h10zM0 2c0-0.53 0.211-1.039 0.586-1.414s0.884-0.586 1.414-0.586h10c0.53 0 1.039 0.211 1.414 0.586s0.586 0.884 0.586 1.414v28c0 0.53-0.211 1.039-0.586 1.414s-0.884 0.586-1.414 0.586h-10c-0.53 0-1.039-0.211-1.414-0.586s-0.586-0.884-0.586-1.414v-28zM18 2c0-0.53 0.211-1.039 0.586-1.414s0.884-0.586 1.414-0.586h10c0.53 0 1.039 0.211 1.414 0.586s0.586 0.884 0.586 1.414v10c0 0.53-0.211 1.039-0.586 1.414s-0.884 0.586-1.414 0.586h-10c-0.53 0-1.039-0.211-1.414-0.586s-0.586-0.884-0.586-1.414v-10zM20 18c-0.53 0-1.039 0.211-1.414 0.586s-0.586 0.884-0.586 1.414v10c0 0.53 0.211 1.039 0.586 1.414s0.884 0.586 1.414 0.586h10c0.53 0 1.039-0.211 1.414-0.586s0.586-0.884 0.586-1.414v-10c0-0.53-0.211-1.039-0.586-1.414s-0.884-0.586-1.414-0.586h-10z">
 			</path>
 		</symbol>
-		<symbol id="icon_equip_water" viewBox="0 0 32 32">
+		<symbol id="icon_equip_water" viewBox="0 0 32 32" fill="none" stroke="currentColor">
 			<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="10" stroke-width="2" d="M25 20c0 5.523-3.477 9-9 9s-9-3.477-9-9c0-5.927 6.452-13.928 8.431-16.242 0.070-0.082 0.158-0.148 0.256-0.194s0.205-0.069 0.314-0.069c0.108 0 0.215 0.023 0.314 0.069s0.186 0.111 0.256 0.194c1.978 2.314 8.43 10.316 8.43 16.242z">
 			</path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M21.5 20.5c0 1.193-0.474 2.338-1.318 3.182s-1.988 1.318-3.182 1.318">
 			</path>
 		</symbol>
-		<symbol id="icon_equip_gas" viewBox="0 0 32 32">
+		<symbol id="icon_equip_gas" viewBox="0 0 32 32" fill="none" stroke="currentColor">
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M8 25.333h5.333M24 25.345v-0.012M2.667 8c0-4.413 0.92-5.333 5.333-5.333h16c4.413 0 5.333 0.92 5.333 5.333v16c0 4.413-0.92 5.333-5.333 5.333h-16c-4.413 0-5.333-0.92-5.333-5.333v-16z">
 			</path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M16 18.667c2.945 0 5.333-2.388 5.333-5.333s-2.388-5.333-5.333-5.333c-2.946 0-5.333 2.388-5.333 5.333s2.388 5.333 5.333 5.333z">
@@ -42,7 +42,7 @@
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M20.667 13.333h2M16 18v2M11.333 13.333h-2M16 8.667v-2">
 			</path>
 		</symbol>
-		<symbol id="icon_equip_microwave" viewBox="0 0 32 32">
+		<symbol id="icon_equip_microwave" viewBox="0 0 32 32" fill="none" stroke="currentColor">
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M26.667 5.333h-21.333c-1.473 0-2.667 1.194-2.667 2.667v14.667c0 1.473 1.194 2.667 2.667 2.667h21.333c1.473 0 2.667-1.194 2.667-2.667v-14.667c0-1.473-1.194-2.667-2.667-2.667z">
 			</path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M17.333 10.667h-8c-0.736 0-1.333 0.597-1.333 1.333v6.667c0 0.736 0.597 1.333 1.333 1.333h8c0.736 0 1.333-0.597 1.333-1.333v-6.667c0-0.736-0.597-1.333-1.333-1.333z">

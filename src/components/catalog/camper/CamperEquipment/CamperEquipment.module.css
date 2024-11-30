@@ -16,5 +16,5 @@
 }
 
 .equipmentIcon {
-  fill: #101828;
+  fill: var(--Main, #101828);
 }
