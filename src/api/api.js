@@ -5,3 +5,5 @@ const baseURL = `https://${apiKey}mockapi.io`;
 export const mockapi = axios.create({
   baseURL,
 });
+
+export const ITEMS_PER_PAGE = 5;

@@ -4,8 +4,9 @@ import CamperEquipment from '../camper/CamperEquipment/CamperEquipment.jsx';
 import CamperGeneralInfo from '../camper/CamperGeneralInfo/CamperGeneralInfo.jsx';
 import CamperImage from '../camper/CamperImage/CamperImage.jsx';
 import css from './CamperItem.module.css';
+import React from 'react';
 
-export default function CamperItem({
+const CamperItem = React.memo(function CamperItem({
   id,
   name,
   price,
@@ -37,4 +38,6 @@ export default function CamperItem({
       </div>
     </li>
   );
-}
+});
+
+export default CamperItem;

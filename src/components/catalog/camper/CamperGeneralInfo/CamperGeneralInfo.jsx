@@ -8,13 +8,12 @@ export default function CamperGeneralInfo({
   rating,
   reviews,
   location,
-  description,
 }) {
   return (
-    <div className={css.camperGeneralInfo}>
+    <div>
       <div className={css.camperHeading}>
         <h3 className={css.camperName}>{name}</h3>
-        <p className={css.camperPrice}>€{price}.00</p>
+        <p className={css.camperPrice}>€{price}</p>
         <Button className={css.favouriteButton} noBaseStyles>
           <svg width="26" height="24">
             <use href={`${icons}#icon_heart`}></use>

@@ -1,15 +1,20 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { mockapi } from '../../api/api.js';
+import { ITEMS_PER_PAGE, mockapi } from '@src/api/api.js';
 
 export const fetchCampers = createAsyncThunk(
   'campers/fetchCampers',
-  async (_, { rejectWithValue }) => {
+  async (arg = {}, { rejectWithValue }) => {
+    const { filters = {}, page = 1, limit = ITEMS_PER_PAGE } = arg;
     try {
-      const response = await mockapi.get('/campers');
+      const response = await mockapi('/campers', {
+        params: { ...filters, page, limit },
+      });
       return response.data;
     } catch (error) {
-      console.error('Error fetching campers:', error);
-      return rejectWithValue(error.response.data);
+      return rejectWithValue({
+        status: error.response?.status || 500,
+        message: error.response?.data || 'Something went wrong',
+      });
     }
   }
 );

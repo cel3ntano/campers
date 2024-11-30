@@ -1,5 +1,4 @@
 .equipmentLabelsList {
-  outline: 2px dashed royalblue;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

@@ -1,15 +1,18 @@
 .button {
-  display: inline-block;
+  /* display: inline-block; */
   color: var(--White, #fff);
+  cursor: pointer;
   margin-top: 40px;
-  border-radius: 200px;
+  padding: 16px 43px;
+  font-weight: 500;
   letter-spacing: -0.005em;
-  background: var(--Link-background);
-  padding: 16px 49px;
+  border: none;
+  border-radius: 200px;
+  background: var(--Button, #e44848);
+  line-height: 1.5;
   transition: all 0.2s ease;
   &:hover,
   &:focus {
     background: var(--Link-hover-background);
-    color: currentColor;
   }
 }
