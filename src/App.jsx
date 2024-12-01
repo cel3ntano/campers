@@ -1,30 +1,49 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header.jsx';
-import Home from './pages/Home/Home.jsx';
-import Catalog from './pages/Catalog/Catalog.jsx';
-import NotFound from './pages/NotFound/NotFound.jsx';
+import { lazy, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-import CamperDetails from './pages/CamperDetails/CamperDetails.jsx';
-import Features from './components/Features/Features.jsx';
-import Reviews from './components/Reviews/Reviews.jsx';
+import Loader from './components/Loader/Loader.jsx';
+import Header from './components/Header/Header.jsx';
 
-function App() {
+const Home = lazy(() => import('./pages/Home/Home.jsx'));
+const Catalog = lazy(() => import('./pages/Catalog/Catalog.jsx'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound.jsx'));
+const Features = lazy(() => import('./components/Features/Features.jsx'));
+const Reviews = lazy(() => import('./components/Reviews/Reviews.jsx'));
+const CamperDetails = lazy(() =>
+  import('./pages/CamperDetails/CamperDetails.jsx')
+);
+
+export default function App() {
   return (
     <>
       <Toaster />
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/catalog/:id" element={<CamperDetails />}>
-          <Route index element={<Navigate to="features" replace />} />
-          <Route path="features" element={<Features />} />
-          <Route path="reviews" element={<Reviews />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/catalog/:id" element={<CamperDetails />}>
+            <Route index element={<Navigate to="features" replace />} />
+            <Route
+              path="features"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Features />
+                </Suspense>
+              }
+            />
+            <Route
+              path="reviews"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Reviews />
+                </Suspense>
+              }
+            />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
-
-export default App;
