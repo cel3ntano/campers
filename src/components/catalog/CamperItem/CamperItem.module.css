@@ -5,6 +5,10 @@
   border-radius: 20px;
   border: 1px solid #dadde1;
   background: var(--White, #fff);
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .camperItemInfo {
@@ -17,4 +21,7 @@
 .camperItemLink {
   margin: 0;
   padding: 16px 40px;
+  @media screen and (max-width: 768px) {
+    align-self: center;
+  }
 }

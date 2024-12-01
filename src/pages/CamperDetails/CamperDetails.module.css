@@ -5,7 +5,12 @@
 .camperImagesGallery {
   margin-top: 28px;
   display: flex;
+  flex-wrap: wrap;
   gap: 48px;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .camperImagesGallery img {
@@ -55,14 +60,18 @@
   margin-top: 68px;
   display: flex;
   gap: 40px;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .additionalInfoWrapper {
-  max-width: 630px;
+  width: 100%;
 }
 
 .bookingFormWrapper {
-  min-width: 553px;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid var(--Gray-light, #dadde1);
 }

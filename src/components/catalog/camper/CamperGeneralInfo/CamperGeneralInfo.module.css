@@ -52,3 +52,7 @@
 .locationIcon {
   fill: #101828;
 }
+
+.favorite {
+  fill: #ff0000;
+}

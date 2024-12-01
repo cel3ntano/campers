@@ -1,9 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import clsx from 'clsx';
 import Button from '../../Button/Button.jsx';
 import css from './CamperGeneralInfo.module.css';
 import icons from '@src/assets/sprite.svg';
+import { toggleFavorite } from '../../../../redux/favourites/slice.js';
 
 export default function CamperGeneralInfo({
+  id, // Add this prop
   name,
   price,
   rating,
@@ -13,14 +17,29 @@ export default function CamperGeneralInfo({
   variant = 'default',
   showFavoriteButton = true,
 }) {
+  const dispatch = useDispatch();
+  const isFavorite = useSelector(state => state.favorites.items.includes(id));
+
+  const handleFavoriteClick = () => {
+    dispatch(toggleFavorite(id));
+  };
+
   return (
     <div className={clsx(css.CamperGeneralInfo, css[variant], className)}>
       <div className={css.camperHeading}>
         <h3 className={css.camperName}>{name}</h3>
         {variant === 'default' && <p className={css.camperPrice}>€{price}</p>}
         {showFavoriteButton && (
-          <Button className={css.favouriteButton} noBaseStyles>
-            <svg width="26" height="24">
+          <Button
+            className={css.favouriteButton}
+            noBaseStyles
+            onClick={handleFavoriteClick}
+          >
+            <svg
+              width="26"
+              height="24"
+              className={clsx(isFavorite && css.favorite)}
+            >
               <use href={`${icons}#icon_heart`}></use>
             </svg>
           </Button>

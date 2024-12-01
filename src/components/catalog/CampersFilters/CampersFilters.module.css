@@ -1,6 +1,9 @@
 .campersFiltersWrapper {
   width: 360px;
   flex-shrink: 0;
+  @media screen and (max-width: 1024px) {
+    width: 640px;
+  }
 }
 
 .form {
@@ -143,6 +146,10 @@
 .searchButton.button {
   padding: 16px 57px;
   margin-bottom: 20px;
+  @media screen and (max-width: 1024px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 .errorText {
