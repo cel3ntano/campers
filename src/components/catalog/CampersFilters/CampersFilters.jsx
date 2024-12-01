@@ -202,7 +202,7 @@ export default function CampersFilters() {
             ))}
           </div>
         </div>
-        <Button className={clsx(css.button, css.searchButton)} type={'submit'}>
+        <Button className={clsx(css.button, css.searchButton)} type="submit">
           Search
         </Button>
       </form>
