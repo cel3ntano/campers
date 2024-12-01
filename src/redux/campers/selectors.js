@@ -4,3 +4,4 @@ export const selectTotalItems = state => state.campers.totalItems;
 export const selectCampers = state => state.campers.campers;
 export const selectPage = state => state.campers.page;
 export const selectHasNextPage = state => state.campers.hasNextPage;
+export const selectCamperDetails = state => state.campers.camperDetails;

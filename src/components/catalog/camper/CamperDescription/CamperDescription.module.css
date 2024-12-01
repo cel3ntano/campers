@@ -1,7 +1,15 @@
 .camperDescription p {
   color: var(--Text, #475467);
+}
+
+.default p {
+  font-size: 16px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+}
+
+.details p {
+  font-size: 16px;
 }

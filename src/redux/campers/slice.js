@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchCampers } from './operations.js';
+import { fetchCamperById, fetchCampers } from './operations.js';
 import { ITEMS_PER_PAGE } from '../../api/api.js';
 
 const initialState = {
@@ -9,6 +9,7 @@ const initialState = {
   isError: false,
   totalItems: 0,
   hasNextPage: true,
+  camperDetails: null,
 };
 
 const campersSlice = createSlice({
@@ -22,6 +23,9 @@ const campersSlice = createSlice({
       state.campers = [];
       state.page = 1;
       state.isError = false;
+    },
+    clearCamperDetails(state) {
+      state.camperDetails = null;
     },
   },
   extraReducers: builder => {
@@ -38,18 +42,35 @@ const campersSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
       })
-      .addMatcher(isAnyOf(fetchCampers.rejected), (state, action) => {
-        state.isLoading = false;
-        state.isError = action.payload || true;
-        state.hasNextPage = false;
-        state.campers = [];
+      .addCase(fetchCamperById.fulfilled, (state, action) => {
+        state.camperDetails = action.payload;
       })
-      .addMatcher(isAnyOf(fetchCampers.pending), state => {
-        state.isLoading = true;
-        state.isError = false;
-      });
+      .addMatcher(
+        isAnyOf(fetchCampers.fulfilled, fetchCamperById.fulfilled),
+        state => {
+          state.isLoading = false;
+          state.isError = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(fetchCampers.rejected, fetchCamperById.rejected),
+        (state, action) => {
+          state.isLoading = false;
+          state.isError = action.payload || true;
+          state.hasNextPage = false;
+          state.campers = [];
+        }
+      )
+      .addMatcher(
+        isAnyOf(fetchCampers.pending, fetchCamperById.pending),
+        state => {
+          state.isLoading = true;
+          state.isError = false;
+        }
+      );
   },
 });
 
-export const { setPage, clearCampers } = campersSlice.actions;
+export const { setPage, clearCampers, clearCamperDetails } =
+  campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

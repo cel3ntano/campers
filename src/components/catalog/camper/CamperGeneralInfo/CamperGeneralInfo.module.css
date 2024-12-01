@@ -18,6 +18,10 @@
   line-height: 1.33;
 }
 
+.details .camperPrice {
+  margin-top: 16px;
+}
+
 .favouriteButton {
   background: transparent;
   border: none;

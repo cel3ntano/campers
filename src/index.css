@@ -28,6 +28,8 @@
   --Url-active-hover: #d84343;
   --Link-background: #e44848;
   --Link-hover-background: #d84343;
+  --StarFilled: #ffc531;
+  --StarEmpty: #f2f4f7;
 }
 
 body {

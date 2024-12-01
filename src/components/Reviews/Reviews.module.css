@@ -1,0 +1,55 @@
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  background-color: var(--Badges, #f2f4f7);
+  color: var(--Button, #e44848);
+}
+
+.reviewerName {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.comment {
+  margin-top: 16px;
+  color: var(--Text, #475467);
+}
+
+.starIcon {
+  fill: var(--StarEmpty, #f2f4f7);
+}
+
+.starIcon.filled {
+  fill: var(--StarFilled, #ffc531);
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}

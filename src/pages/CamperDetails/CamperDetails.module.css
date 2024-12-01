@@ -1,0 +1,74 @@
+.camperDetails {
+  margin-top: 48px;
+}
+
+.camperImagesGallery {
+  margin-top: 28px;
+  display: flex;
+  gap: 48px;
+}
+
+.camperImagesGallery img {
+  min-height: 325px;
+}
+
+.description {
+  margin-top: 28px;
+}
+
+.additionalInfoWpadpper {
+  position: relative;
+  margin-top: 60px;
+}
+
+.additionalInfoButtons {
+  display: flex;
+  gap: 40px;
+}
+
+.additionalInfoButtons a {
+  color: var(--Main, #101828);
+  padding-bottom: 24px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  &:hover {
+    color: var(--Url-active-hover);
+  }
+}
+.additionalInfoButtons a.active {
+  border-bottom: 5px solid var(--Button, #e44848);
+}
+
+.additionalInfoButtons::after {
+  content: '';
+  position: absolute;
+  bottom: -26px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--Gray-light, #dadde1);
+}
+
+.bottomContainer {
+  margin-top: 68px;
+  display: flex;
+  gap: 40px;
+}
+
+.additionalInfoWrapper {
+  max-width: 630px;
+}
+
+.bookingFormWrapper {
+  min-width: 553px;
+  border-radius: 10px;
+  border: 1px solid var(--Gray-light, #dadde1);
+}
+
+.errorMessage {
+  padding: 20px;
+  color: var(--Error, #ed6f6f);
+  margin: 0 auto;
+}

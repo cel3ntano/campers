@@ -46,3 +46,15 @@ export const fetchCampers = createAsyncThunk(
     }
   }
 );
+
+export const fetchCamperById = createAsyncThunk(
+  'campers/fetchCamperById',
+  async (camperId, { rejectWithValue }) => {
+    try {
+      const response = await mockapi(`/campers/${camperId}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

@@ -34,7 +34,14 @@ const CamperItem = React.memo(function CamperItem({
         <div className={css.camperEquipment}>
           <CamperEquipment camperDetails={camperDetails} />
         </div>
-        <Link className={`link ${css.camperItemLink}`}>Show More</Link>
+        <Link
+          to={`${id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`link ${css.camperItemLink}`}
+        >
+          Show More
+        </Link>
       </div>
     </li>
   );
