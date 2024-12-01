@@ -14,7 +14,7 @@
   letter-spacing: -0.08px;
   border: 1px solid var(--Gray-light, #dadde1);
   &:hover,
-  &:focus {
+  &:focus-visible {
     background: transparent;
     border: 1px solid var(--Button-Hover, #d84343);
   }

@@ -26,7 +26,6 @@ const campersSlice = createSlice({
         const uniqueCampers = Array.from(
           new Map(combinedItems.map(camper => [camper.id, camper])).values()
         );
-
         state.campers = uniqueCampers;
         state.totalItems = action.payload.total || state.totalItems;
         state.hasNextPage = uniqueCampers.length < state.totalItems;

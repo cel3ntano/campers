@@ -1,4 +1,159 @@
-.aside {
-  outline: 2px dashed green;
+.campersFiltersWrapper {
   min-width: 360px;
+  background: var(--White, #fff);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.locationLabel {
+  color: var(--Gray, #6c717b);
+}
+
+.locationInputWrapper {
+  position: relative;
+}
+
+.locationsDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.locationOption {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.locationOption:hover {
+  background-color: #f7f7f7;
+}
+
+.locationInput {
+  width: 100%;
+  outline: none;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 12px;
+  background: var(--Inputs, #f7f7f7);
+  color: var(--Main, #101828);
+  line-height: 1.5;
+}
+
+.locationIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #101828;
+}
+
+.filtersTitle {
+  margin-top: 40px;
+  color: var(--Text, #475467);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.equipmentFilters {
+  padding-top: 32px;
+}
+
+.filterLabel {
+  color: var(--Main, #101828);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  position: relative;
+}
+
+.filterLabel::after {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--Gray-light, #dadde1);
+}
+
+.filterOptionsGrid {
+  padding-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 12px;
+}
+
+.filterOption {
+  display: flex;
+}
+
+.filterOptionButton {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: transparent;
+  border-radius: 12px;
+  border: 1px solid var(--Gray-light, #dadde1);
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  &:hover {
+    border-color: var(--Light-red, #f0b1b1);
+  }
+}
+
+.icon {
+  fill: #101828;
+}
+
+.iconLabel {
+  color: var(--Main, #101828);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.typeFilters {
+  margin-top: 32px;
+}
+
+.searchButton.button {
+  padding: 16px 57px;
+}
+
+.errorText {
+  color: #dc2626;
+}
+
+.filterInputElement {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.filterInputElement:checked + .filterOptionButton {
+  border-color: var(--Button, #e44848);
 }

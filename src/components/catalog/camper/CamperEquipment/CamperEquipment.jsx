@@ -1,22 +1,8 @@
-import React from 'react';
 import icons from '@src/assets/sprite.svg';
 import css from './CamperEquipment.module.css';
+import { iconMap } from '../../../../helpers/iconMap.js';
 
 export default function CamperEquipment({ camperDetails }) {
-  const iconMap = {
-    AC: 'icon_equip_ac',
-    TV: 'icon_equip_tv',
-    bathroom: 'icon_equip_bathroom',
-    engine: 'icon_equip_engine',
-    gas: 'icon_equip_gas',
-    kitchen: 'icon_equip_kitchen',
-    microwave: 'icon_equip_microwave',
-    radio: 'icon_equip_radio',
-    refrigerator: 'icon_equip_refrigerator',
-    water: 'icon_equip_water',
-    transmission: 'icon_equip_transmission',
-  };
-
   const activeProperties = Object.keys(camperDetails ?? {}).filter(key => {
     const value = camperDetails?.[key];
     return value === true || value;
@@ -56,7 +42,7 @@ export default function CamperEquipment({ camperDetails }) {
               <use href={`${icons}#${label.iconId}`} />
             </svg>
           ) : (
-            <p>'{label.value}'</p>
+            <p>{label.value}</p>
           )}
           <p>{label.name}</p>
         </li>

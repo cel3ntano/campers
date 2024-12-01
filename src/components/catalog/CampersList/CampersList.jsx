@@ -25,14 +25,23 @@ export default function CampersList() {
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
+    dispatch(fetchCampers({ page }));
+  }, [dispatch, page]);
+
+  useEffect(() => {
     if (isError) {
       toast.error('Something went wrong. Try reloading the page');
     }
   }, [isError]);
 
   useEffect(() => {
-    dispatch(fetchCampers({ page }));
-  }, [dispatch, page]);
+    if (!hasNextPage && page > 1) {
+      toast.success("You've reached the end of the list!", {
+        position: 'bottom-center',
+        duration: 3000,
+      });
+    }
+  }, [hasNextPage, page]);
 
   const handleLoadMore = useCallback(() => {
     dispatch(setPage(page + 1));

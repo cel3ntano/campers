@@ -5,6 +5,7 @@ import css from './Catalog.module.css';
 export default function Catalog() {
   return (
     <div className={`${css.catalogPage} container`}>
+      <h1 className="visually-hidden">Campers catalog</h1>
       <CampersFilters />
       <CampersList />
     </div>

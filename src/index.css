@@ -16,9 +16,12 @@
   --Main: #101828;
   --White: #fff;
   --Light: #ffffff;
+  --Gray-light: #dadde1;
   --Dark: #101828;
+  --Text: #475467;
   --Inputs: #f7f7f7;
   --Badges: #f2f4f7;
+  --Light-red: #f0b1b1;
   --Button: #e44848;
   --Button-Hover: #d84343;
   --Url-active-hover: #d84343;
@@ -82,6 +85,19 @@ a {
     background: var(--Link-hover-background);
     color: var(--White, #fff);
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: light) {
