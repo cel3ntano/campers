@@ -1,6 +1,6 @@
 .campersFiltersWrapper {
-  min-width: 360px;
-  background: var(--White, #fff);
+  width: 360px;
+  flex-shrink: 0;
 }
 
 .form {
@@ -11,7 +11,7 @@
 .locationWrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  position: relative;
 }
 
 .locationLabel {
@@ -19,6 +19,7 @@
 }
 
 .locationInputWrapper {
+  margin-top: 8px;
   position: relative;
 }
 
@@ -141,10 +142,15 @@
 
 .searchButton.button {
   padding: 16px 57px;
+  margin-bottom: 20px;
 }
 
 .errorText {
-  color: #dc2626;
+  color: var(--Error, #ed6f6f);
+  font-size: 13px;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
 }
 
 .filterInputElement {

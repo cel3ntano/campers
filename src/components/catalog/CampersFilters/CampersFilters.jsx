@@ -8,6 +8,11 @@ import Button from '../Button/Button.jsx';
 import clsx from 'clsx';
 import { locations } from '../../../helpers/locations.js';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../../../redux/filters/slice.js';
+import { clearCampers } from '../../../redux/campers/slice.js';
+import { fetchCampers } from '../../../redux/campers/operations.js';
+import { VEHICLE_TYPE_MAP } from '../../../helpers/vehicleTypeMap.js';
 export default function CampersFilters() {
   const [filteredLocations, setFilteredLocations] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -32,7 +37,11 @@ export default function CampersFilters() {
   };
 
   const validateFiltersSchema = Yup.object().shape({
-    location: Yup.string().required('Location is required'),
+    location: Yup.string().test(
+      'is-valid-or-empty',
+      'Please enter a valid city name (letters and hyphens only)',
+      value => !value || /^[A-Za-z-]+$/.test(value)
+    ),
   });
 
   const equipmentIcons = [
@@ -41,7 +50,7 @@ export default function CampersFilters() {
     { id: 'bathroom', name: 'Bathroom' },
     { id: 'kitchen', name: 'Kitchen' },
     { id: 'gas', name: 'Gas' },
-    { id: 'transmission', name: 'Auto' },
+    { id: 'transmission', name: 'Automatic' },
   ].map(icon => ({
     ...icon,
     iconId: iconMap[icon.id],
@@ -56,17 +65,17 @@ export default function CampersFilters() {
     iconId: iconMap[type.id],
   }));
 
+  const dispatch = useDispatch();
+
   const {
     register,
-    // handleSubmit,
-    // reset,
+    handleSubmit,
     setValue,
-
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
       location: '',
-      form: null,
       AC: false,
       TV: false,
       bathroom: false,
@@ -79,9 +88,41 @@ export default function CampersFilters() {
     mode: 'onSubmit',
   });
 
+  const defaultValues = {
+    location: '',
+    form: '',
+    AC: false,
+    TV: false,
+    bathroom: false,
+    kitchen: false,
+    gas: false,
+    transmission: false,
+  };
+
+  const onSubmit = data => {
+    const filters = {
+      location: data.location || defaultValues.location,
+      form: data.vehicleType
+        ? VEHICLE_TYPE_MAP[data.vehicleType]
+        : defaultValues.form,
+      transmission:
+        data.transmission === true ? 'automatic' : defaultValues.transmission,
+    };
+
+    const equipmentFields = ['AC', 'TV', 'bathroom', 'kitchen', 'gas'];
+    equipmentFields.forEach(field => {
+      filters[field] = data[field] === true ? true : defaultValues[field];
+    });
+
+    dispatch(clearCampers());
+    dispatch(setFilters(filters));
+    dispatch(fetchCampers({ filters, page: 1, showToast: true }));
+    reset();
+  };
+
   return (
     <div className={css.campersFiltersWrapper}>
-      <form className={css.form}>
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.locationWrapper}>
           <label htmlFor="location" className={css.locationLabel}>
             Location
@@ -161,12 +202,7 @@ export default function CampersFilters() {
             ))}
           </div>
         </div>
-
-        <Button
-          className={clsx(css.button, css.searchButton)}
-          type={'submit'}
-          // onClick={}
-        >
+        <Button className={clsx(css.button, css.searchButton)} type={'submit'}>
           Search
         </Button>
       </form>

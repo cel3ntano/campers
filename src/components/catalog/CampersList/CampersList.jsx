@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCampers,
   selectHasNextPage,
-  selectIsError,
   selectIsLoading,
   selectPage,
 } from '../../../redux/campers/selectors.js';
@@ -15,24 +14,19 @@ import Button from '../Button/Button.jsx';
 import { fetchCampers } from '../../../redux/campers/operations.js';
 import clsx from 'clsx';
 import { setPage } from '../../../redux/campers/slice.js';
+import { selectFilters } from '../../../redux/filters/selectors.js';
 
 export default function CampersList() {
   const dispatch = useDispatch();
   const campersList = useSelector(selectCampers) ?? [];
   const page = useSelector(selectPage);
   const hasNextPage = useSelector(selectHasNextPage);
-  const isError = useSelector(selectIsError);
   const isLoading = useSelector(selectIsLoading);
+  const filters = useSelector(selectFilters);
 
   useEffect(() => {
-    dispatch(fetchCampers({ page }));
-  }, [dispatch, page]);
-
-  useEffect(() => {
-    if (isError) {
-      toast.error('Something went wrong. Try reloading the page');
-    }
-  }, [isError]);
+    dispatch(fetchCampers({}));
+  }, [dispatch]);
 
   useEffect(() => {
     if (!hasNextPage && page > 1) {
@@ -44,8 +38,9 @@ export default function CampersList() {
   }, [hasNextPage, page]);
 
   const handleLoadMore = useCallback(() => {
-    dispatch(setPage(page + 1));
-
+    const nextPage = page + 1;
+    dispatch(setPage(nextPage));
+    dispatch(fetchCampers({ filters, page: nextPage }));
     setTimeout(() => {
       const listElement = document.querySelector(`.${css.campersList}`);
       const newItems = listElement?.querySelectorAll('li');
@@ -61,27 +56,33 @@ export default function CampersList() {
         }
       }
     }, 200);
-  }, [dispatch, page]);
+  }, [dispatch, filters, page]);
 
   if (isLoading && campersList.length === 0) {
     return <Loader />;
   }
 
   return (
-    <div>
-      <ul className={css.campersList}>
-        {campersList.map(camper => (
-          <CamperItem key={camper.id} {...camper} />
-        ))}
-      </ul>
-      {hasNextPage && (
-        <Button
-          className={clsx(css.button, css.loadMoreButton)}
-          onClick={handleLoadMore}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Loading...' : 'Load more'}
-        </Button>
+    <div className={css.campersListWrapper}>
+      {isLoading && campersList.length === 0 ? (
+        <Loader />
+      ) : (
+        <>
+          <ul className={css.campersList}>
+            {campersList.map(camper => (
+              <CamperItem key={camper.id} {...camper} />
+            ))}
+          </ul>
+          {hasNextPage && (
+            <Button
+              className={clsx(css.button, css.loadMoreButton)}
+              onClick={handleLoadMore}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Loading...' : 'Load more'}
+            </Button>
+          )}
+        </>
       )}
     </div>
   );

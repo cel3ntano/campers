@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchCampers } from './operations.js';
+import { ITEMS_PER_PAGE } from '../../api/api.js';
 
 const initialState = {
   campers: [],
@@ -17,6 +18,11 @@ const campersSlice = createSlice({
     setPage(state, action) {
       state.page = action.payload;
     },
+    clearCampers(state) {
+      state.campers = [];
+      state.page = 1;
+      state.isError = false;
+    },
   },
   extraReducers: builder => {
     builder
@@ -27,8 +33,8 @@ const campersSlice = createSlice({
           new Map(combinedItems.map(camper => [camper.id, camper])).values()
         );
         state.campers = uniqueCampers;
-        state.totalItems = action.payload.total || state.totalItems;
-        state.hasNextPage = uniqueCampers.length < state.totalItems;
+        state.totalItems = action.payload.total;
+        state.hasNextPage = state.page < state.totalItems / ITEMS_PER_PAGE;
         state.isLoading = false;
         state.isError = false;
       })
@@ -36,6 +42,7 @@ const campersSlice = createSlice({
         state.isLoading = false;
         state.isError = action.payload || true;
         state.hasNextPage = false;
+        state.campers = [];
       })
       .addMatcher(isAnyOf(fetchCampers.pending), state => {
         state.isLoading = true;
@@ -44,5 +51,5 @@ const campersSlice = createSlice({
   },
 });
 
-export const { setPage } = campersSlice.actions;
+export const { setPage, clearCampers } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;
