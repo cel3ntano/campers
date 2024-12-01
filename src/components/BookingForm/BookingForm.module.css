@@ -1,5 +1,8 @@
 .formWrapper {
   padding: 44px;
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .title {

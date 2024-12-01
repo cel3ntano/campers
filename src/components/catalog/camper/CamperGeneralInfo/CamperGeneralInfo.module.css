@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  @media screen and (max-width: 550px) {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 .camperName {
@@ -9,6 +13,9 @@
   color: var(--Main, #101828);
   font-size: 24px;
   line-height: 1.33;
+  @media screen and (max-width: 550px) {
+    margin: 0;
+  }
 }
 
 .camperPrice {
@@ -20,6 +27,9 @@
 
 .details .camperPrice {
   margin-top: 16px;
+  @media screen and (max-width: 550px) {
+    text-align: center;
+  }
 }
 
 .favouriteButton {
@@ -32,6 +42,9 @@
   margin-top: 8px;
   display: flex;
   gap: 16px;
+  @media screen and (max-width: 550px) {
+    justify-content: center;
+  }
 }
 
 .camperMetaData p {

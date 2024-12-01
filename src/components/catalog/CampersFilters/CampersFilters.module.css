@@ -1,8 +1,14 @@
 .campersFiltersWrapper {
   width: 360px;
   flex-shrink: 0;
-  @media screen and (max-width: 1024px) {
-    width: 640px;
+  @media screen and (max-width: 375px) {
+    width: 330px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 480px;
+  }
+  @media screen and (max-width: 334px) {
+    width: 310px;
   }
 }
 
@@ -104,6 +110,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px 12px;
+  @media screen and (max-width: 334px) {
+    gap: 6px;
+  }
 }
 
 .filterOption {
@@ -131,12 +140,20 @@
 
 .icon {
   fill: #101828;
+  @media screen and (max-width: 334px) {
+    width: 24px;
+    width: 24px;
+  }
 }
 
 .iconLabel {
   color: var(--Main, #101828);
   font-weight: 500;
   letter-spacing: -0.005em;
+  @media screen and (max-width: 334px) {
+    font-weight: 400;
+    font-size: 14px;
+  }
 }
 
 .typeFilters {

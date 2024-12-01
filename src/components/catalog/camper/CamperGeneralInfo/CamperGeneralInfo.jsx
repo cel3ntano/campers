@@ -28,7 +28,9 @@ export default function CamperGeneralInfo({
     <div className={clsx(css.CamperGeneralInfo, css[variant], className)}>
       <div className={css.camperHeading}>
         <h3 className={css.camperName}>{name}</h3>
-        {variant === 'default' && <p className={css.camperPrice}>€{price}</p>}
+        {variant === 'default' && (
+          <p className={css.camperPrice}>€{`${price}.00`}</p>
+        )}
         {showFavoriteButton && (
           <Button
             className={css.favouriteButton}
@@ -59,7 +61,9 @@ export default function CamperGeneralInfo({
           {location?.split(',').reverse().join(', ')}
         </p>
       </div>
-      {variant === 'details' && <p className={css.camperPrice}>€{price}</p>}
+      {variant === 'details' && (
+        <p className={css.camperPrice}>€{`${price}.00`}</p>
+      )}
     </div>
   );
 }
