@@ -30,6 +30,8 @@
   --Link-hover-background: #d84343;
   --StarFilled: #ffc531;
   --StarEmpty: #f2f4f7;
+  --Loader-secondary-color: #d2bbbb;
+  --Loader-primary-color: #e44848;
 }
 
 body {

@@ -1,7 +1,6 @@
 .campersListWrapper {
-  /* New class for the outer div */
-  flex-grow: 1; /* Take remaining space */
-  width: 100%; /* Take full width of its container */
+  flex-grow: 1;
+  width: 100%;
 }
 
 .campersList {

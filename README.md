@@ -1,5 +1,7 @@
 # Campers App for TravelTrucks Company
 
+![banner](https://repository-images.githubusercontent.com/895317136/eaf6bb2c-60d6-4375-9f26-841e0b948579)
+
 This single-page application (SPA) is developed with the React library, providing a seamless and efficient user experience for managing camper rentals
 
 ## App overview

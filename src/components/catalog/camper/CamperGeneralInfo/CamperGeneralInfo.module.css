@@ -35,7 +35,10 @@
 .favouriteButton {
   background: transparent;
   border: none;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease;
+  &:hover {
+    fill: #56585b;
+  }
 }
 
 .camperMetaData {
@@ -44,6 +47,8 @@
   gap: 16px;
   @media screen and (max-width: 550px) {
     justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 }
 
@@ -67,5 +72,9 @@
 }
 
 .favorite {
+  transition: all 0.2s ease;
   fill: #ff0000;
+  &:hover {
+    fill: #fc5151;
+  }
 }

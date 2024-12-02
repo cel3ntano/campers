@@ -2,6 +2,8 @@ import CamperEquipment from '../catalog/camper/CamperEquipment/CamperEquipment.j
 import css from './Features.module.css';
 import { useSelector } from 'react-redux';
 import { selectCamperDetails } from '../../redux/campers/selectors.js';
+import { formatMeasurementValue } from '../../helpers/formatMeasurementValue.js';
+import { formatVehicleType } from '../../helpers/vehicleTypeMap.js';
 
 export default function Features() {
   const camperDetails = useSelector(selectCamperDetails) || {};
@@ -17,27 +19,27 @@ export default function Features() {
         <dl className={css.detailsList}>
           <div>
             <dt>Form</dt>
-            <dd>{form}</dd>
+            <dd>{formatVehicleType(form)}</dd>
           </div>
           <div>
             <dt>Length</dt>
-            <dd>{length}</dd>
+            <dd>{formatMeasurementValue(length)}</dd>
           </div>
           <div>
             <dt>Width</dt>
-            <dd>{width}</dd>
+            <dd>{formatMeasurementValue(width)}</dd>
           </div>
           <div>
             <dt>Height</dt>
-            <dd>{height}</dd>
+            <dd>{formatMeasurementValue(height)}</dd>
           </div>
           <div>
             <dt>Tank</dt>
-            <dd>{tank}</dd>
+            <dd>{formatMeasurementValue(tank)}</dd>
           </div>
           <div>
             <dt>Consumption</dt>
-            <dd>{consumption}</dd>
+            <dd>{formatMeasurementValue(consumption)}</dd>
           </div>
         </dl>
       </div>

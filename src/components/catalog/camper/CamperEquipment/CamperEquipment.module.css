@@ -4,16 +4,10 @@
   gap: 8px;
   font-weight: 500;
   overflow: hidden;
-  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+  @media screen and (min-width: 1024px) and (max-width: 1440px) {
     max-height: calc(16px + 3 * 48px);
   }
 }
-
-/* .equipmentLabelsList {
-  display: block;
-  max-height: calc(4 * 48px);
-  overflow: hidden;
-} */
 
 .labelItem {
   display: flex;

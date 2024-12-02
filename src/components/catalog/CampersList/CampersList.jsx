@@ -58,10 +58,6 @@ export default function CampersList() {
     }, 200);
   }, [dispatch, filters, page]);
 
-  if (isLoading && campersList.length === 0) {
-    return <Loader />;
-  }
-
   return (
     <div className={css.campersListWrapper}>
       {isLoading && campersList.length === 0 ? (
