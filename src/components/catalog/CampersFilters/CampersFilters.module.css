@@ -160,15 +160,6 @@
   margin-top: 32px;
 }
 
-.searchButton.button {
-  padding: 16px 57px;
-  margin-bottom: 20px;
-  @media screen and (max-width: 1024px) {
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
 .errorText {
   color: var(--Error, #ed6f6f);
   font-size: 13px;
@@ -186,4 +177,33 @@
 
 .filterInputElement:checked + .filterOptionButton {
   border-color: var(--Button, #e44848);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
+  @media screen and (max-width: 374px) {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.searchButton.button {
+  padding: 16px 57px;
+  @media screen and (max-width: 374px) {
+    gap: 16px;
+  }
+}
+
+.resetButton.button {
+  background-color: var(--Gray-light, #dadde1);
+  &:hover {
+    background-color: #c4c8ce;
+  }
 }

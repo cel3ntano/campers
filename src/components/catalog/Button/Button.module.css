@@ -1,9 +1,7 @@
 .button {
-  /* display: inline-block; */
   width: fit-content;
   color: var(--White, #fff);
   cursor: pointer;
-  margin-top: 40px;
   padding: 16px 43px;
   font-weight: 500;
   letter-spacing: -0.005em;

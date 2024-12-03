@@ -13,6 +13,7 @@ import { setFilters } from '../../../redux/filters/slice.js';
 import { clearCampers } from '../../../redux/campers/slice.js';
 import { fetchCampers } from '../../../redux/campers/operations.js';
 import { VEHICLE_TYPE_MAP } from '../../../helpers/vehicleTypeMap.js';
+
 export default function CampersFilters() {
   const [filteredLocations, setFilteredLocations] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -97,6 +98,12 @@ export default function CampersFilters() {
     kitchen: false,
     gas: false,
     transmission: false,
+  };
+
+  const handleReset = () => {
+    reset();
+    setFilteredLocations([]);
+    setShowDropdown(false);
   };
 
   const onSubmit = data => {
@@ -202,9 +209,18 @@ export default function CampersFilters() {
             ))}
           </div>
         </div>
-        <Button className={clsx(css.button, css.searchButton)} type="submit">
-          Search
-        </Button>
+        <div className={css.buttonGroup}>
+          <Button className={clsx(css.button, css.searchButton)} type="submit">
+            Search
+          </Button>
+          <Button
+            className={clsx(css.button, css.searchButton, css.resetButton)}
+            type="button"
+            onClick={handleReset}
+          >
+            Reset
+          </Button>
+        </div>
       </form>
     </div>
   );
