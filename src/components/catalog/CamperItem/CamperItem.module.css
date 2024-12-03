@@ -9,7 +9,10 @@
     align-items: center;
     flex-direction: column;
   }
-  @media screen and (max-width: 335px) {
+  @media screen and (max-width: 319px) {
+    padding: 8px;
+  }
+  @media screen and (max-width: 467px) {
     padding: 16px;
   }
 }

@@ -32,6 +32,8 @@
   --StarEmpty: #f2f4f7;
   --Loader-secondary-color: #d2bbbb;
   --Loader-primary-color: #e44848;
+  --Skeleton-background: #f0eded;
+  --Skeleton-background-secondary: #ebe8e8;
 }
 
 body {
@@ -102,11 +104,11 @@ a {
   padding: 0 64px;
 
   @media screen and (max-width: 374px) {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 
   @media screen and (min-width: 375px) and (max-width: 767px) {
-    padding: 0 30px;
+    padding: 0 16px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {

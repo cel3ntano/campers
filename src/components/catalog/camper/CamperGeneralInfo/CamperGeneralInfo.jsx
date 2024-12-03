@@ -7,7 +7,7 @@ import icons from '@src/assets/sprite.svg';
 import { toggleFavorite } from '../../../../redux/favourites/slice.js';
 
 export default function CamperGeneralInfo({
-  id, // Add this prop
+  id,
   name,
   price,
   rating,
@@ -29,7 +29,7 @@ export default function CamperGeneralInfo({
       <div className={css.camperHeading}>
         <h3 className={css.camperName}>{name}</h3>
         {variant === 'default' && (
-          <p className={css.camperPrice}>€{`${price}.00`}</p>
+          <p className={css.camperPrice}>€{`${price.toFixed(2)}`}</p>
         )}
         {showFavoriteButton && (
           <Button
@@ -62,7 +62,7 @@ export default function CamperGeneralInfo({
         </p>
       </div>
       {variant === 'details' && (
-        <p className={css.camperPrice}>€{`${price}.00`}</p>
+        <p className={css.camperPrice}>€{`${price.toFixed(2)}`}</p>
       )}
     </div>
   );

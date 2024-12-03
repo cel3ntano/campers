@@ -9,12 +9,12 @@ import {
   selectPage,
 } from '../../../redux/campers/selectors.js';
 import toast from 'react-hot-toast';
-import Loader from '../../Loader/Loader.jsx';
 import Button from '../Button/Button.jsx';
 import { fetchCampers } from '../../../redux/campers/operations.js';
 import clsx from 'clsx';
 import { setPage } from '../../../redux/campers/slice.js';
 import { selectFilters } from '../../../redux/filters/selectors.js';
+import CamperItemSkeleton from '../CamperItemSkeleton/CamperItemSkeleton.jsx';
 
 export default function CampersList() {
   const dispatch = useDispatch();
@@ -58,27 +58,27 @@ export default function CampersList() {
     }, 200);
   }, [dispatch, filters, page]);
 
+  const skeletonItems = Array(5)
+    .fill(null)
+    .map((_, index) => <CamperItemSkeleton key={index} />);
+
   return (
     <div className={css.campersListWrapper}>
-      {isLoading && campersList.length === 0 ? (
-        <Loader />
-      ) : (
-        <>
-          <ul className={css.campersList}>
-            {campersList.map(camper => (
+      <ul className={css.campersList}>
+        {isLoading && page === 1
+          ? skeletonItems
+          : campersList.map(camper => (
               <CamperItem key={camper.id} {...camper} />
             ))}
-          </ul>
-          {hasNextPage && (
-            <Button
-              className={clsx(css.button, css.loadMoreButton)}
-              onClick={handleLoadMore}
-              disabled={isLoading}
-            >
-              {isLoading ? 'Loading...' : 'Load more'}
-            </Button>
-          )}
-        </>
+      </ul>
+      {hasNextPage && (
+        <Button
+          className={clsx(css.button, css.loadMoreButton)}
+          onClick={handleLoadMore}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Loading...' : 'Load more'}
+        </Button>
       )}
     </div>
   );

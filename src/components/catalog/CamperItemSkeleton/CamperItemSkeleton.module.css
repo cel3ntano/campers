@@ -1,0 +1,159 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.skeletonItem {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid var(--Gray-light, #dadde1);
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.skeletonImage {
+  width: 290px;
+  height: 310px;
+  flex-shrink: 0;
+  background-color: var(--Skeleton-background);
+  border-radius: 10px;
+  animation: pulse 1.5s ease-in-out infinite;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.infoSection {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.skeletonTitle {
+  height: 24px;
+  width: 100%;
+  background-color: var(--Skeleton-background);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonPrice {
+  height: 24px;
+  width: 100px;
+  background-color: var(--Skeleton-background);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonHeart {
+  width: 24px;
+  height: 24px;
+  background-color: var(--Skeleton-background);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.metaRow {
+  display: flex;
+  gap: 16px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.skeletonRating,
+.skeletonLocation {
+  height: 16px;
+  width: 120px;
+  background-color: var(--Skeleton-background);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonDescription {
+  height: 30px;
+  background-color: var(--Skeleton-background);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+  @media screen and (max-width: 768px) {
+    height: 24px;
+  }
+}
+
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    max-height: calc(8px + 2 * 36px);
+  }
+}
+
+.skeletonEquipmentItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background-color: var(--Skeleton-background);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+  background-color: var(--Skeleton-background-secondary);
+}
+
+.skeletonLabel {
+  width: 40px;
+  height: 16px;
+  background-color: var(--Skeleton-background);
+  border-radius: 4px;
+}
+
+.skeletonButton {
+  height: 40px;
+  width: 120px;
+  background-color: var(--Skeleton-background);
+  border-radius: 200px;
+  margin-top: 24px;
+  animation: pulse 1.5s ease-in-out infinite;
+  @media screen and (max-width: 768px) {
+    margin: 0 auto;
+  }
+}
