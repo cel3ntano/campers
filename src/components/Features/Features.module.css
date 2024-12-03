@@ -5,6 +5,9 @@
   padding: 44px 52px;
   border-radius: 10px;
   background: var(--Inputs, #f7f7f7);
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .camperDetails {

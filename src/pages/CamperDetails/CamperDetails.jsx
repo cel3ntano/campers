@@ -20,16 +20,7 @@ export default function CamperDetails() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
-  const {
-    id = '',
-    price = '',
-    rating = '',
-    location = '',
-    reviews = [],
-    gallery = [],
-    name = '',
-    description = '',
-  } = useSelector(selectCamperDetails) || {};
+  const camperDetails = useSelector(selectCamperDetails);
 
   useEffect(() => {
     dispatch(fetchCamperById(camperId));
@@ -47,6 +38,13 @@ export default function CamperDetails() {
     );
   }
 
+  if (!camperDetails) {
+    return <p className={css.errorMessage}>No camper details found</p>;
+  }
+
+  const { id, price, rating, location, reviews, gallery, name, description } =
+    camperDetails;
+
   return (
     <div className={`${css.camperDetails} container`}>
       <CamperGeneralInfo
@@ -54,16 +52,20 @@ export default function CamperDetails() {
         variant="details"
         showFavoriteButton={false}
       />
-      <ul className={css.camperImagesGallery}>
-        {gallery.map((image, index) => (
-          <li key={index}>
-            <CamperImage
-              image={image.thumb}
-              alt={`${name}-photo-${index + 1}`}
-            />
-          </li>
-        ))}
-      </ul>
+      {gallery && gallery.length > 0 ? (
+        <ul className={css.camperImagesGallery}>
+          {gallery.map((image, index) => (
+            <li key={index}>
+              <CamperImage
+                image={image.thumb}
+                alt={`${name}-photo-${index + 1}`}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No images available</p>
+      )}
       <div className={css.description}>
         <CamperDescription description={description} variant="details" />
       </div>
